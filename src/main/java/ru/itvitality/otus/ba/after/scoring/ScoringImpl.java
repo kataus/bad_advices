@@ -2,6 +2,7 @@ package ru.itvitality.otus.ba.after.scoring;
 
 import ru.itvitality.otus.ba.model.Account;
 import ru.itvitality.otus.ba.model.CreditAccount;
+import ru.itvitality.otus.ba.model.DepositAccount;
 import ru.itvitality.otus.ba.model.User;
 
 import java.math.BigDecimal;
@@ -19,6 +20,18 @@ public class ScoringImpl implements Scoring {
                         .findFirst();
                 if ( ! credits.isPresent() ) {
                     result.setScore( result.getScore() + 20 );
+                    if (result.getScore() > 100){
+                        result.setScore( 100 );
+                    }
+                }
+                var deposits = accounts.stream()
+                        .filter( a -> a instanceof DepositAccount )
+                        .findFirst();
+                if ( deposits.isPresent() ) {
+                    result.setScore( result.getScore() + 10 );
+                    if (result.getScore() > 100){
+                        result.setScore( 100 );
+                    }
                 }
             }
             result.setResult( ResultEnum.OK );
