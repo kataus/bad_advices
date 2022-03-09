@@ -21,7 +21,7 @@ public class ScoringUse {
             result = scoring.score( amount, user, accounts );
         }
 
-        var result = scoring.score( amount, user, accounts );
+//        var result = scoring.score( amount, user, accounts );
         if (result.getResult().equals( ResultEnum.OK )){
             return true;
         } else if (result.getResult().equals( ResultEnum.WARNING )){
