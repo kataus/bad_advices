@@ -12,6 +12,15 @@ public class ScoringUse {
     public boolean creditDecition( BigDecimal amount, User user){
         var accounts = new ArrayList<Account>();
 
+        ScoringResult result = new ScoringResult();
+        if (inShop(user)){
+            var scoring = new ScoringShopImpl();
+            result = scoring.score( amount, user, accounts );
+        } else if (onlineUser(user)){
+            var scoring = new ScoringOnlineImpl();
+            result = scoring.score( amount, user, accounts );
+        }
+
         var result = scoring.score( amount, user, accounts );
         if (result.getResult().equals( ResultEnum.OK )){
             return true;
@@ -20,6 +29,14 @@ public class ScoringUse {
         } else if (result.getResult().equals( ResultEnum.ERROR )) {
             // ...
         }
+        return false;
+    }
+
+    private boolean onlineUser( User user ) {
+        return false;
+    }
+
+    private boolean inShop( User user ) {
         return false;
     }
 }

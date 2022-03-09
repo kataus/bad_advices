@@ -8,10 +8,18 @@ public class K {
     private int j;
     private int h;
 
+    /**
+     * получение объема куба
+     * @return
+     */
     public int v() {
         return i * j * i;
     }
 
+    /**
+     * Метод позволяет прочитать ширину
+     * @return
+     */
     public int getJ() {
         return j;
     }
@@ -28,10 +36,15 @@ public class K {
         this.h = h;
     }
 
+
     public int getI() {
         return i;
     }
 
+    /**
+     * Метод позволяет установить высоту
+     * @param i
+     */
     public void setI( int i ) {
         this.i = i;
     }
