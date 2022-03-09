@@ -1,5 +1,8 @@
-package ru.itvitality.otus.ba.after;
+package ru.itvitality.otus.ba.after.k;
 
+/**
+ * Класс описывает куб
+ */
 public class K {
     private int i;
     private int j;
@@ -31,5 +34,11 @@ public class K {
 
     public void setI( int i ) {
         this.i = i;
+    }
+
+    public K( int i, int j, int h ) {
+        this.i = i;
+        this.j = j;
+        this.h = h;
     }
 }

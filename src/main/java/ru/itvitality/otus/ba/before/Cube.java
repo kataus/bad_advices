@@ -1,10 +1,17 @@
 package ru.itvitality.otus.ba.before;
 
+/**
+ * Класс описывает куб
+ */
 public class Cube {
     private int length;
     private int width;
     private int height;
 
+    /**
+     * об
+     * @return
+     */
     public int getVolume() {
         return length * width * height;
     }
